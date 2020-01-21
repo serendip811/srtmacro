@@ -19,9 +19,9 @@ if (document.URL.substring(0, dsturl1.length) == dsturl1) {
 		console.log("first:" + firstSelected);
 
 		if (sessionStorage.getItem('macro') == "true") {
-			$("div.button").append('<a href="#" onclick="macrostop();" style="margin-left:5px;"><img src="' + chrome.extension.getURL('images/btn_stop.png') + '"></a>');
+			$("#search_top_tag").append('<a href="#" onclick="macrostop();" style="margin-left:5px;"><img src="' + chrome.extension.getURL('images/btn_stop.png') + '"></a>');
 		} else {
-			$("div.button").append('<a href="#" onclick="macro();" style="margin-left:5px;"><img src="' + chrome.extension.getURL('images/btn_start.png') + '"></a>');
+			$("#search_top_tag").append('<a href="#" onclick="macro();" class="btn_large val_m"><img src="' + chrome.extension.getURL('images/btn_start.png') + '"></a>');
 		}
 
 		$("<style>")
@@ -74,12 +74,14 @@ if (document.URL.substring(0, dsturl1.length) == dsturl1) {
 					var first = $(columns[5]);
 					var coach = $(columns[6]);
 
+					console.log(coachSelected);
+
 					if (coachSelected.indexOf(i+"") > -1) {
 						var coachSpecials = coach.children("a");
 						if (coachSpecials.length != 0) {
 							for (j = 0; j < coachSpecials.length; j++) {
 								name = $(coachSpecials[j]).attr('class');
-								if (name == 'button button-02') {
+								if (name == 'btn_small btn_burgundy_dark val_m wx90') {
 									$(coachSpecials[0])[0].click();
 									succeed = true;
 									break;
